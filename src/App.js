@@ -100,16 +100,12 @@ class Calculator extends React.Component {
 class App extends Component {
   render() {
     
-    const handleSubmit = event => {
-      event.preventDefault();
-      alert('You have submitted the form.')
-    }   
 
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to Celcius to Farhenheit Calculator!</h1>
+          <h1 className="App-title">Welcome to Celsius to Fahrenheit Calculator!</h1>
         </header>
         
         <div className="App-form">
@@ -117,15 +113,7 @@ class App extends Component {
           <ShowFarenheit value="0" /> */}
           <Calculator />
           </div>
-        <form onSubmit={handleSubmit}>
-          <fieldset>
-            <label>
-              <p>Sign up for updates!</p>
-              <input name="name" />
-            </label>
-          </fieldset>
-          <button type="submit">Submit</button>
-      </form>
+        
       </div>
     );
   }
