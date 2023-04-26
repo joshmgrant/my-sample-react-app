@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import TemperatureCalculations from './Calculations';
+import DataManager from './datamanager';
 
 
 const scaleNames = {
@@ -91,6 +92,7 @@ class Calculator extends React.Component {
           onTemperatureChange={this.handleFahrenheitChange} />
           <hr/>
           <TemperatureMessage celsius={celsius} fahrenheit={fahrenheit} />
+          <hr/>
       </div>
     );
   }
@@ -99,6 +101,13 @@ class Calculator extends React.Component {
 
 class App extends Component {
   render() {
+    const data = new DataManager();
+
+    const handleSubmit = event => {
+      event.preventDefault();
+      alert('You have submitted the form.')
+    }   
+
     return (
       <div className="App">
         <header className="App-header">
@@ -110,7 +119,16 @@ class App extends Component {
           {/* <Convert />
           <ShowFarenheit value="0" /> */}
           <Calculator />
-        </div>
+          </div>
+        <form onSubmit={handleSubmit}>
+          <fieldset>
+            <label>
+              <p>Sign up for updates!</p>
+              <input name="name" />
+            </label>
+          </fieldset>
+          <button type="submit">Submit</button>
+      </form>
       </div>
     );
   }
