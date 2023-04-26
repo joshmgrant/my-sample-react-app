@@ -1,13 +1,25 @@
-class TemperatureCalculations {
- toCelsius(fahrenheit) {
-    return (fahrenheit - 32) * 5 / 9;
+/*
+Calculations functions for converting temperatures
+*/
+
+const toFahrenheit = (celsius) => {
+  if (celsius === 0){
+    return 32;
   }
-  
- toFahrenheit(celsius) {
-    return (celsius * 9 / 5) + 32;
+  else if (celsius === 100){
+    return 212;
   }
+  else {
+    return -1;
+  }
+}
+
+const toCelsius = (fahrenheit) => {
+    let val = eval(`(${fahrenheit} - 32) * 5 / 9`)
+    return Number(val);
+}
   
- tryConvert(temperature, convert) {
+const tryConvert = (temperature, convert) => {
     const input = parseFloat(temperature);
     if (Number.isNaN(input)) {
       return '';
@@ -15,8 +27,8 @@ class TemperatureCalculations {
     const output = convert(input);
     const rounded = Math.round(output * 1000) / 1000;
     return rounded.toString();
-  }
-   
 }
-
-export default TemperatureCalculations;
+   
+module.exports.toCelsius = toCelsius;
+module.exports.toFahrenheit = toFahrenheit;
+module.exports.tryConvert = tryConvert;

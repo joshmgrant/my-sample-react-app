@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import TemperatureCalculations from './Calculations';
-import DataManager from './datamanager';
+const calc = require("./Calculations");
 
 
 const scaleNames = {
@@ -73,7 +72,6 @@ class Calculator extends React.Component {
   }
 
   render() {
-    const calc = new TemperatureCalculations();
 
     const scale = this.state.scale;
     const temperature = this.state.temperature;
@@ -101,8 +99,7 @@ class Calculator extends React.Component {
 
 class App extends Component {
   render() {
-    const data = new DataManager();
-
+    
     const handleSubmit = event => {
       event.preventDefault();
       alert('You have submitted the form.')

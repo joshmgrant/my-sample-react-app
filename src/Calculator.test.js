@@ -1,21 +1,21 @@
-import TemperatureCalculations from "./Calculations"
+const calc = require("./Calculations");
 
 const assert = require('assert');
 
-it('calculates Celsius correctly', () => {
-  const calc = new TemperatureCalculations;
+describe("Temperature calculations", () => {
 
-  const expectedF = 32
-  const actualF = calc.toFahrenheit(0);
+  it('calculates Celsius correctly', () => {
+    const expectedF = 32
+    const actualF = calc.toFahrenheit(0);
 
-  assert.equal(actualF, expectedF);
-});
+    assert.equal(actualF, expectedF);
+  });
 
-it('calculates Celsius correctly', () => {
-  const calc = new TemperatureCalculations;
+  it('calculates Celsius correctly', () => {
+    const expectedC = 100
+    const actualC = calc.toCelsius(212);
 
-  const expectedC = 100
-  const actualC = calc.toCelsius(212);
+    assert.equal(actualC, expectedC);
+  });
 
-  assert.equal(actualC, expectedC);
 });
